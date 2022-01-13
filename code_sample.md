@@ -64,6 +64,11 @@ def hello():
 ## さらにコードの追加（1）
 
 ```python
+from flask_cors import CORS
+
+application = Flask(__name__)
+CORS(application)
+
 @application.route('/calc', methods=['POST'])
 def calc():
     payload = request.json
