@@ -43,3 +43,30 @@ def lambda_handler(event, context):
     'body': json.dumps({'person_count': person_count})
   }
 ```
+
+## コードの追加
+
+```python
+from flask import Flask, Response, request
+import optparse
+from datetime import datetime as dt
+
+def hello():
+    payload = request.json
+    result = {
+        'message': 'Hello, %s!' % payload['name'],
+        'datetime': dt.now().isoformat()
+    }
+    return Response(json.dumps(result), mimetype='application/json', status=200)
+```
+
+## さらにコードの追加（1）
+
+```python
+def calc():
+    payload = request.json
+    result = {
+        'answer': payload['a'] + payload['b']
+    }
+    return Response(json.dumps(result), mimetype='application/json', status=200)
+```
