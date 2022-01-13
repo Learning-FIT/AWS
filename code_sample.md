@@ -51,6 +51,7 @@ from flask import Flask, Response, request
 import optparse
 from datetime import datetime as dt
 
+@application.route('/hello', methods=['POST'])
 def hello():
     payload = request.json
     result = {
@@ -63,6 +64,7 @@ def hello():
 ## さらにコードの追加（1）
 
 ```python
+@application.route('/calc', methods=['POST'])
 def calc():
     payload = request.json
     result = {
